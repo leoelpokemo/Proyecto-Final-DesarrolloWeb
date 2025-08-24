@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+    <title>Magical Mexico</title>
+    <link href="./pages/index.css" rel="stylesheet" />
+  </head>
+
+  <body class="site">
+    <div class="site__wrapper">
+      <header class="banner site__section">
+        <img
+          alt="Magical Mexico Logo"
+          class="banner__logo"
+          src="./images/logo-mexico.jpeg"
+        />
+      </header>
+
+      <main class="main-content">
+        <section class="traveler-profile site__section">
+          <img
+            class="traveler-profile__image"
+            src="images/imgprofile.jpg"
+            alt="Avatar"
+          />
+          <div class="traveler-profile__details">
+            <h1 class="traveler-profile__name">Leonardo Bobadilla</h1>
+            <button
+              aria-label="Edit traveler profile"
+              class="traveler-profile__edit-btn"
+              type="button"
+            ></button>
+            <p class="traveler-profile__bio">IT Engineer</p>
+          </div>
+          <button
+            aria-label="Add new place"
+            class="traveler-profile__add-place-btn"
+            type="button"
+          ></button>
+        </section>
+
+        <section class="places-gallery site__section">
+          <ul class="places-gallery__list"></ul>
+        </section>
+      </main>
+
+      <footer class="footer site__section">
+        <p class="footer__text">© Magical Mexico</p>
+      </footer>
+
+      <!-- Modal Edit Profile (fixed: unique form id and unique input ids) -->
+      <div class="modal" id="modal-id-profile">
+        <div class="modal__content">
+          <button
+            aria-label="Close modal"
+            class="modal__close"
+            type="button"
+          ></button>
+          <h3 class="modal__title">Edit Profile</h3>
+
+          <!-- IMPORTANT: id changed to form-edit-profile (was duplicate) -->
+          <form class="modal__form" id="form-edit-profile" novalidate>
+            <label class="modal__field">
+              <input
+                id="profile-name"
+                class="modal__input modal__input_type_title"
+                name="profile-name"
+                placeholder="Name"
+                minlength="2"
+                maxlength="30"
+                required
+                type="text"
+              />
+              <span class="modal__error" id="profile-name-error"></span>
+            </label>
+
+            <label class="modal__field">
+              <!-- changed id/name to profile-description to avoid duplication -->
+              <input
+                id="profile-description"
+                class="modal__input modal__input_type_description"
+                name="profile-description"
+                placeholder="Description"
+                minlength="2"
+                maxlength="100"
+                required
+                type="text"
+              />
+              <span class="modal__error" id="profile-description-error"></span>
+            </label>
+
+            <button class="button modal__submit" type="submit">Save</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Modal Add New Place (keeps form-new-place id) -->
+      <div class="modal" id="modal-new-place">
+        <div class="modal__content">
+          <button
+            aria-label="Close modal"
+            class="modal__close"
+            type="button"
+          ></button>
+          <h3 class="modal__title">Add New Place</h3>
+
+          <form class="modal__form" id="form-new-place" novalidate>
+            <label class="modal__field">
+              <input
+                id="place-title"
+                class="modal__input modal__input_type_title"
+                name="place-name"
+                placeholder="Title"
+                minlength="2"
+                maxlength="30"
+                required
+                type="text"
+              />
+              <span class="modal__error" id="place-title-error"></span>
+            </label>
+
+            <label class="modal__field">
+              <!-- kept id place-image-url but made it unique by removing duplicates above -->
+              <input
+                id="place-image-url"
+                class="modal__input modal__input_type_image-url"
+                name="link"
+                placeholder="Image URL"
+                required
+                type="url"
+              />
+              <span class="modal__error" id="place-image-url-error"></span>
+            </label>
+
+            <button class="button modal__submit" type="submit">Create</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Modal View Image (fixed: uses modal__close class for close button) -->
+      <div class="modal" id="modal-image-view">
+        <div class="modal__box modal__box_type_image">
+          <button
+            aria-label="Close modal"
+            class="modal__close"
+            type="button"
+          ></button>
+          <img alt="" class="modal__image" src="#" />
+          <p class="modal__caption"></p>
+        </div>
+      </div>
+    </div>
+
+    <template id="template-place-card">
+      <li class="place-card">
+        <img class="place-card__image" src="#" alt="" />
+        <button
+          aria-label="Remove place"
+          class="place-card__delete-button"
+          type="button"
+        ></button>
+        <div class="place-card__description">
+          <h2 class="place-card__title"></h2>
+          <button
+            aria-label="Like place"
+            class="place-card__like-button"
+            type="button"
+          ></button>
+        </div>
+      </li>
+    </template>
+
+    <!-- Script moved inside body (syntax-correct placement) -->
+    <script src="./scripts/script.js" type="module"></script>
+  </body>
+</html>
