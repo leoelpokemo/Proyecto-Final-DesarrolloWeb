@@ -15,7 +15,7 @@ const cards = [
   },
   {
     image:
-      "https://images.pexels.com/phothttps://i.pinimg.com/736x/07/39/3e/07393ee5bd2e2751e1012994182d42c8.jpg",
+      "https://cdn.royalcanin-weshare-online.io/zlY7qG0BBKJuub5q1Vk6/v1/59-es-l-golden-running-thinking-getting-dog-beneficios?w=1440&fm=jpg&auto=format%2Ccompress",
     name: "Estas",
   },
 ];
